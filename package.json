@@ -1,0 +1,34 @@
+{
+  "name": "vite-plugin-inject-preload",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">= 14"
+  },
+  "peerDependencies": {
+    "vite": "^2.9.0 || ^3.0.0-0"
+  },
+  "description": " A Vite plugin for injecting <link rel='preload'>",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "link",
+    "preload",
+    "inject",
+    "vite",
+    "vite-plugin"
+  ],
+  "author": "Applelo",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@types/mime-types": "^2.1.1",
+    "rollup": "^2.77.0",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.0",
+    "vitest": "^0.18.1"
+  },
+  "dependencies": {
+    "mime-types": "^2.1.35"
+  }
+}
