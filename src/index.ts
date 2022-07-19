@@ -1,9 +1,17 @@
 import type { Plugin, HtmlTagDescriptor } from 'vite'
 import mime from 'mime-types'
 
+interface OptionsFilesAttributes {
+  /*
+    @see https://fetch.spec.whatwg.org/#concept-request-destination
+  */
+  as: RequestDestination
+  [key: string]: string
+}
+
 interface OptionsFiles {
   match: RegExp
-  attributes?: Record<string, string>
+  attributes?: OptionsFilesAttributes
 }
 
 interface Options {
@@ -25,27 +33,31 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
         for (const asset in bundle) {
           for (let index = 0; index < options.files.length; index++) {
             const file = options.files[index]
-            const attrs = file.attributes || {}
-            if (file.match.test(asset)) {
-              let href = attrs.href ? attrs.href : false
-              if (href === false || typeof href === 'undefined') {
-                href = '/' + asset
-              }
+            if (!file.match.test(asset)) continue
 
-              tags.push({
-                tag: 'link',
-                attrs: Object.assign(
-                  {
-                    rel: 'preload',
-                    href,
-                    type: mime.lookup(asset),
-                    as: 'style' as RequestDestination //https://fetch.spec.whatwg.org/#concept-request-destination
-                  },
-                  attrs
-                ),
-                injectTo: options.injectTo ? options.injectTo : 'head'
-              })
+            const attrs = file.attributes || ({} as OptionsFilesAttributes)
+            const type = mime.lookup(asset)
+            const injectTo = options.injectTo
+              ? options.injectTo
+              : 'head-prepend'
+            let href = attrs.href ? attrs.href : false
+            if (href === false || typeof href === 'undefined') {
+              href = '/' + asset
             }
+
+            tags.push({
+              tag: 'link',
+              attrs: Object.assign(
+                {
+                  rel: 'preload',
+                  href,
+                  type: type ? type : undefined,
+                  as: type ? getAsWithMime(type) : undefined
+                },
+                attrs
+              ),
+              injectTo
+            })
           }
         }
 
@@ -53,4 +65,18 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
       }
     }
   }
+}
+
+const getAsWithMime = (mime: string) => {
+  let as = mime.split('/')[0]
+
+  if (['text/css'].includes(mime)) {
+    as = 'style'
+  } else if (['application/javascript'].includes(mime)) {
+    as = 'script'
+  } else if (['text/vtt'].includes(mime)) {
+    as = 'track'
+  }
+
+  return as
 }

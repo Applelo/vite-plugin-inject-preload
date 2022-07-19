@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import VitePluginInjectPreload from './../src/index'
+import VitePluginInjectPreload from './../../src/index'
 import Inspect from 'vite-plugin-inspect'
 
 export default defineConfig({
@@ -7,11 +7,10 @@ export default defineConfig({
     VitePluginInjectPreload({
       files: [
         {
-          match: /index\.[a-z-0-9]*.css$/,
-          attributes: {
-            as: 'style',
-            type: 'text/css'
-          }
+          match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.ttf$/
+        },
+        {
+          match: /lazy.[a-z-0-9]*.(css|js)$/
         }
       ]
     }),
