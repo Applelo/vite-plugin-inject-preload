@@ -1,7 +1,7 @@
 import type { Plugin, HtmlTagDescriptor } from 'vite'
 import mime from 'mime-types'
 
-interface OptionsFilesAttributes {
+export interface OptionsFilesAttributes {
   /*
     @see https://fetch.spec.whatwg.org/#concept-request-destination
   */
@@ -9,18 +9,18 @@ interface OptionsFilesAttributes {
   [key: string]: string
 }
 
-interface OptionsFiles {
+export interface OptionsFiles {
   match: RegExp
   attributes?: OptionsFilesAttributes
 }
 
-interface Options {
+export interface Options {
   files: OptionsFiles[]
   injectTo?: 'head' | 'head-prepend'
 }
 
 export default function VitePluginInjectPreload(options: Options): Plugin {
-  return <Plugin>{
+  return {
     name: 'vite-plugin-inject-preload',
     transformIndexHtml: {
       enforce: 'post',
@@ -67,16 +67,39 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
   }
 }
 
-const getAsWithMime = (mime: string) => {
-  let as = mime.split('/')[0]
+export const getAsWithMime = (mime: string): RequestDestination | undefined => {
+  let destination = mime.split('/')[0]
+  const validDestinations = [
+    'audio',
+    'audioworklet',
+    'document',
+    'embed',
+    'font',
+    'frame',
+    'iframe',
+    'image',
+    'manifest',
+    'object',
+    'paintworklet',
+    'report',
+    'script',
+    'sharedworker',
+    'style',
+    'track',
+    'video',
+    'worker',
+    'xslt'
+  ]
 
   if (['text/css'].includes(mime)) {
-    as = 'style'
+    destination = 'style'
   } else if (['application/javascript'].includes(mime)) {
-    as = 'script'
+    destination = 'script'
   } else if (['text/vtt'].includes(mime)) {
-    as = 'track'
+    destination = 'track'
   }
 
-  return as
+  return validDestinations.includes(destination)
+    ? (destination as RequestDestination)
+    : undefined
 }
