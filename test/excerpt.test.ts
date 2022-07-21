@@ -8,7 +8,7 @@ const configs = {
   injectBottom: {
     files: [
       {
-        match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.ttf$/
+        match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.woff2$/
       },
       {
         match: /lazy.[a-z-0-9]*.(css|js)$/
@@ -19,7 +19,7 @@ const configs = {
   customAttributes: {
     files: [
       {
-        match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.ttf$/,
+        match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.woff2$/,
         attributes: {
           as: 'font',
           crossorigin: 'anonymous',
@@ -31,7 +31,7 @@ const configs = {
   auto: {
     files: [
       {
-        match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.ttf$/
+        match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.woff2$/
       },
       {
         match: /lazy.[a-z-0-9]*.(css|js)$/

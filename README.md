@@ -33,7 +33,7 @@ export default {
     VitePluginInjectPreload({
       files: [
         {
-          match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.ttf$/
+          match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.woff2$/
         },
         {
           match: /lazy.[a-z-0-9]*.(css|js)$/,
@@ -53,7 +53,7 @@ export default {
   You can also add/override any attributes you want to use (but not the `rel="preload"` attribute).
 * injectTo (optional): By default, the preload links are injected with the `'head-prepend'` options. But you can pass `'head'` if you need it.
 
-With the full options usage, you can make something like this :
+With the full options usage, you can do something like this :
 
 ```js
 // vite.config.js / vite.config.ts
@@ -64,9 +64,9 @@ export default {
     VitePluginInjectPreload({
       files: [
         {
-          match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.ttf$/,
+          match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.woff2$/,
           attributes: {
-            type: 'font/ttf',
+            type: 'font/woff2',
             as: 'font',
             crossorigin: 'anonymous',
             'data-font': 'Roboto'

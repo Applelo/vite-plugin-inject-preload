@@ -4,17 +4,17 @@ exports[`excerpt > test auto 1`] = `
 "<!DOCTYPE html>
 <html lang=\\"en\\">
   <head>
-    <link rel=\\"preload\\" href=\\"/assets/Roboto-Italic.99e4a850.ttf\\" type=\\"font/ttf\\" as=\\"font\\">
-    <link rel=\\"preload\\" href=\\"/assets/Roboto-Regular.4e147ab6.ttf\\" type=\\"font/ttf\\" as=\\"font\\">
-    <link rel=\\"preload\\" href=\\"/assets/lazy.e1c9ab55.js\\" type=\\"application/javascript\\" as=\\"script\\">
+    <link rel=\\"preload\\" href=\\"/assets/Roboto-Italic.7d6fc55f.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
+    <link rel=\\"preload\\" href=\\"/assets/Roboto-Regular.a9876de8.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
+    <link rel=\\"preload\\" href=\\"/assets/lazy.3569e8c2.js\\" type=\\"application/javascript\\" as=\\"script\\">
     <link rel=\\"preload\\" href=\\"/assets/lazy.99e8e9ea.css\\" type=\\"text/css\\" as=\\"style\\">
 
     <meta charset=\\"UTF-8\\" />
     <link rel=\\"icon\\" type=\\"image/svg+xml\\" href=\\"/vite.svg\\" />
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
     <title>Vite Plugin Inject Preload</title>
-    <script type=\\"module\\" crossorigin src=\\"/assets/index.0c03e71d.js\\"></script>
-    <link rel=\\"stylesheet\\" href=\\"/assets/index.4e95a45c.css\\">
+    <script type=\\"module\\" crossorigin src=\\"/assets/index.f1a43016.js\\"></script>
+    <link rel=\\"stylesheet\\" href=\\"/assets/index.9083f2dc.css\\">
   </head>
   <body>
     <h1>Vite Plugin Inject Preload</h1>
@@ -28,15 +28,15 @@ exports[`excerpt > test customAttributes 1`] = `
 "<!DOCTYPE html>
 <html lang=\\"en\\">
   <head>
-    <link rel=\\"preload\\" href=\\"/assets/Roboto-Italic.99e4a850.ttf\\" type=\\"font/ttf\\" as=\\"font\\" crossorigin=\\"anonymous\\" data-font=\\"Roboto\\">
-    <link rel=\\"preload\\" href=\\"/assets/Roboto-Regular.4e147ab6.ttf\\" type=\\"font/ttf\\" as=\\"font\\" crossorigin=\\"anonymous\\" data-font=\\"Roboto\\">
+    <link rel=\\"preload\\" href=\\"/assets/Roboto-Italic.7d6fc55f.woff2\\" type=\\"font/woff2\\" as=\\"font\\" crossorigin=\\"anonymous\\" data-font=\\"Roboto\\">
+    <link rel=\\"preload\\" href=\\"/assets/Roboto-Regular.a9876de8.woff2\\" type=\\"font/woff2\\" as=\\"font\\" crossorigin=\\"anonymous\\" data-font=\\"Roboto\\">
 
     <meta charset=\\"UTF-8\\" />
     <link rel=\\"icon\\" type=\\"image/svg+xml\\" href=\\"/vite.svg\\" />
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
     <title>Vite Plugin Inject Preload</title>
-    <script type=\\"module\\" crossorigin src=\\"/assets/index.0c03e71d.js\\"></script>
-    <link rel=\\"stylesheet\\" href=\\"/assets/index.4e95a45c.css\\">
+    <script type=\\"module\\" crossorigin src=\\"/assets/index.f1a43016.js\\"></script>
+    <link rel=\\"stylesheet\\" href=\\"/assets/index.9083f2dc.css\\">
   </head>
   <body>
     <h1>Vite Plugin Inject Preload</h1>
@@ -54,11 +54,11 @@ exports[`excerpt > test injectBottom 1`] = `
     <link rel=\\"icon\\" type=\\"image/svg+xml\\" href=\\"/vite.svg\\" />
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
     <title>Vite Plugin Inject Preload</title>
-    <script type=\\"module\\" crossorigin src=\\"/assets/index.0c03e71d.js\\"></script>
-    <link rel=\\"stylesheet\\" href=\\"/assets/index.4e95a45c.css\\">
-    <link rel=\\"preload\\" href=\\"/assets/Roboto-Italic.99e4a850.ttf\\" type=\\"font/ttf\\" as=\\"font\\">
-    <link rel=\\"preload\\" href=\\"/assets/Roboto-Regular.4e147ab6.ttf\\" type=\\"font/ttf\\" as=\\"font\\">
-    <link rel=\\"preload\\" href=\\"/assets/lazy.e1c9ab55.js\\" type=\\"application/javascript\\" as=\\"script\\">
+    <script type=\\"module\\" crossorigin src=\\"/assets/index.f1a43016.js\\"></script>
+    <link rel=\\"stylesheet\\" href=\\"/assets/index.9083f2dc.css\\">
+    <link rel=\\"preload\\" href=\\"/assets/Roboto-Italic.7d6fc55f.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
+    <link rel=\\"preload\\" href=\\"/assets/Roboto-Regular.a9876de8.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
+    <link rel=\\"preload\\" href=\\"/assets/lazy.3569e8c2.js\\" type=\\"application/javascript\\" as=\\"script\\">
     <link rel=\\"preload\\" href=\\"/assets/lazy.99e8e9ea.css\\" type=\\"text/css\\" as=\\"style\\">
   </head>
   <body>
