@@ -30,7 +30,11 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
 
         const tags: HtmlTagDescriptor[] = []
 
-        for (const asset in bundle) {
+        const sortBundle = Object.keys(bundle)
+          .sort()
+          .reduce((res, key) => ((res[key] = bundle[key]), res), {})
+
+        for (const asset in sortBundle) {
           for (let index = 0; index < options.files.length; index++) {
             const file = options.files[index]
             if (!file.match.test(asset)) continue
