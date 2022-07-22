@@ -1,4 +1,5 @@
 import type { HtmlTagDescriptor, Plugin } from 'vite'
+import { OutputBundle } from 'rollup'
 import mime from 'mime-types'
 
 export interface OptionsFilesAttributes {
@@ -30,11 +31,11 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
 
         const tags: HtmlTagDescriptor[] = []
 
-        const sortBundle = Object.keys(bundle)
+        const assets: OutputBundle = Object.keys(bundle)
           .sort()
           .reduce((res, key) => ((res[key] = bundle[key]), res), {})
 
-        for (const asset in sortBundle) {
+        for (const asset in assets) {
           for (let index = 0; index < options.files.length; index++) {
             const file = options.files[index]
             if (!file.match.test(asset)) continue
