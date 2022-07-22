@@ -1,5 +1,5 @@
+import { describe, expect, it } from 'vitest'
 import { getAsWithMime } from '../src/index'
-import { it, describe, expect } from 'vitest'
 
 describe('getAsWithMime', () => {
   it('test with basic mime', () => {

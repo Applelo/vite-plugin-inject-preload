@@ -50,7 +50,7 @@ export default {
   * match: A regular expression to target files you want to preload
   * attributes (optional):
   If this option is ommited, it will determine the `mime` and the `as` attributes automatically.
-  You can also add/override any attributes you want to use (but not the `rel="preload"` attribute).
+  You can also add/override any attributes you want (but not the `rel="preload"` attribute).
 * injectTo (optional): By default, the preload links are injected with the `'head-prepend'` options. But you can pass `'head'` if you need it.
 
 With the full options usage, you can do something like this :
@@ -73,7 +73,7 @@ export default {
           }
         }
       ],
-      injectTo: 'head'
+      injectTo: 'head-prepend'
     })
   ]
 }

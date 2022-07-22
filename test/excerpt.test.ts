@@ -1,8 +1,9 @@
-import { build } from 'vite'
-import VitePluginInjectPreload, { Options } from './../src/index'
-import { describe, expect, it } from 'vitest'
 import { resolve } from 'path'
-import type { RollupOutput, OutputAsset } from 'rollup'
+import { build } from 'vite'
+import { describe, expect, it } from 'vitest'
+import type { OutputAsset, RollupOutput } from 'rollup'
+import VitePluginInjectPreload from './../src/index'
+import type { Options } from './../src/index'
 
 const configs = {
   injectBottom: {
@@ -40,7 +41,7 @@ const configs = {
   }
 }
 
-const buildVite = async (config: any) => {
+const buildVite = async (config: Options) => {
   const { output } = (await build({
     root: resolve(__dirname, './project'),
     plugins: [VitePluginInjectPreload(config)]

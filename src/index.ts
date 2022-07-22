@@ -1,4 +1,4 @@
-import type { Plugin, HtmlTagDescriptor } from 'vite'
+import type { HtmlTagDescriptor, Plugin } from 'vite'
 import mime from 'mime-types'
 
 export interface OptionsFilesAttributes {
@@ -41,9 +41,8 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
               ? options.injectTo
               : 'head-prepend'
             let href = attrs.href ? attrs.href : false
-            if (href === false || typeof href === 'undefined') {
-              href = '/' + asset
-            }
+            if (href === false || typeof href === 'undefined')
+              href = `/${asset}`
 
             tags.push({
               tag: 'link',
@@ -51,7 +50,7 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
                 {
                   rel: 'preload',
                   href,
-                  type: type ? type : undefined,
+                  type: type || undefined,
                   as: type ? getAsWithMime(type) : undefined
                 },
                 attrs
@@ -91,13 +90,9 @@ export const getAsWithMime = (mime: string): RequestDestination | undefined => {
     'xslt'
   ]
 
-  if (['text/css'].includes(mime)) {
-    destination = 'style'
-  } else if (['application/javascript'].includes(mime)) {
-    destination = 'script'
-  } else if (['text/vtt'].includes(mime)) {
-    destination = 'track'
-  }
+  if (['text/css'].includes(mime)) destination = 'style'
+  else if (['application/javascript'].includes(mime)) destination = 'script'
+  else if (['text/vtt'].includes(mime)) destination = 'track'
 
   return validDestinations.includes(destination)
     ? (destination as RequestDestination)
