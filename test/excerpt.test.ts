@@ -54,7 +54,7 @@ const buildVite = async (config: Options) => {
   return indexSource.toString()
 }
 
-describe('excerpt', async () => {
+describe('excerpt', () => {
   for (const key in configs) {
     if (Object.prototype.hasOwnProperty.call(configs, key)) {
       const config = configs[key] as Options

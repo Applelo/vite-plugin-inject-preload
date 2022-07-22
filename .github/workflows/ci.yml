@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  build:
+  test:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -41,7 +41,6 @@ jobs:
         run: yarn test
 
   lint:
-    # timeout-minutes: 10
     runs-on: ubuntu-latest
     name: 'Lint: node-16, ubuntu-latest'
 
