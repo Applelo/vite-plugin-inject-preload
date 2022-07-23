@@ -5,7 +5,7 @@ import type { OutputAsset, RollupOutput } from 'rollup'
 import VitePluginInjectPreload from './../src/index'
 import type { Options } from './../src/index'
 
-const configs = {
+const configs: Record<string, Options> = {
   injectBottom: {
     files: [
       {

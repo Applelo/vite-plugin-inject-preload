@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-inject-preload",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": " A Vite plugin for injecting <link rel='preload'>",
   "author": "Applelo",
   "license": "GPL-3.0",
