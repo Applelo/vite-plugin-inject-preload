@@ -5,9 +5,9 @@
 A [Vite plugin](https://github.com/vitejs/vite) for injecting [&lt;link rel='preload'>](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)
 
 
-This plugin adds preload links on build by getting ViteJS output assets files.
+This plugin adds preload links on build by getting ViteJS output assets.
 
-Currently this plugin is working **only on build** because of the way Rollup and Vite behave. Maybe in a future update 🤷‍♂️.
+Currently this plugin **only works on build** because of the way Vite behave. Maybe in a future update 🤷‍♂️.
 
 ## 📦 Install
 
