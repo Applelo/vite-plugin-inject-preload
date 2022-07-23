@@ -5,7 +5,7 @@
 A [Vite plugin](https://github.com/vitejs/vite) for injecting [&lt;link rel='preload'>](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)
 
 
-This plugin adds preload links on build.
+This plugin adds preload links on build by getting ViteJS output assets files.
 
 Currently this plugin is working **only on build** because of the way Rollup and Vite behave. Maybe in a future update 🤷‍♂️.
 
@@ -47,11 +47,11 @@ export default {
 **Options**
 
 * files: An array of files object
-  * match: A regular expression to target files you want to preload
+  * match: A regular expression to target build files you want to preload
   * attributes (optional):
   If this option is ommited, it will determine the `mime` and the `as` attributes automatically.
   You can also add/override any attributes you want (but not the `rel="preload"` attribute).
-* injectTo (optional): By default, the preload links are injected with the `'head-prepend'` options. But you can pass `'head'` if you need it.
+* injectTo (optional): By default, the preload links are injected with the `'head-prepend'` options. But you can pass `'head'` to inject preload links at bottom of the head tag if you need it.
 
 With the full options usage, you can do something like this :
 
@@ -80,4 +80,5 @@ export default {
 ```
 
 ## 👨‍💼 Licence
+
 GPL-3.0

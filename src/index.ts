@@ -2,21 +2,25 @@ import type { HtmlTagDescriptor, Plugin } from 'vite'
 import { OutputBundle } from 'rollup'
 import mime from 'mime-types'
 
-export interface OptionsFilesAttributes {
-  /*
-    @see https://fetch.spec.whatwg.org/#concept-request-destination
-  */
-  as: RequestDestination
-  [key: string]: string
-}
-
 export interface OptionsFiles {
+  /**
+   * Regular expression to target build files
+   */
   match: RegExp
-  attributes?: OptionsFilesAttributes
+  /**
+   * Attributes added to the preload links
+   */
+  attributes?: Record<string, string>
 }
 
 export interface Options {
+  /**
+   * An array of file options
+   */
   files: OptionsFiles[]
+  /**
+   * The position where the preload links are injected
+   */
   injectTo?: 'head' | 'head-prepend'
 }
 
@@ -40,14 +44,16 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
             const file = options.files[index]
             if (!file.match.test(asset)) continue
 
-            const attrs = file.attributes || ({} as OptionsFilesAttributes)
-            const type = mime.lookup(asset)
+            const attrs = file.attributes || ({} as Record<string, string>)
             const injectTo = options.injectTo
               ? options.injectTo
               : 'head-prepend'
             let href = attrs.href ? attrs.href : false
-            if (href === false || typeof href === 'undefined')
+            if (href === false || typeof href === 'undefined') {
               href = `/${asset}`
+            }
+            const type = attrs.type ? attrs.type : mime.lookup(asset)
+            const as = attrs.as ? attrs.as : getAsWithMime(type || '')
 
             tags.push({
               tag: 'link',
@@ -56,7 +62,7 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
                   rel: 'preload',
                   href,
                   type: type || undefined,
-                  as: type ? getAsWithMime(type) : undefined
+                  as
                 },
                 attrs
               ),
