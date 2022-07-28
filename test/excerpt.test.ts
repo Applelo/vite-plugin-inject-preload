@@ -43,7 +43,7 @@ const configs: Record<string, Options> = {
 
 const buildVite = async (config: Options) => {
   const { output } = (await build({
-    root: resolve(__dirname, './project'),
+    root: resolve(__dirname, './../demo'),
     plugins: [VitePluginInjectPreload(config)]
   })) as RollupOutput
 

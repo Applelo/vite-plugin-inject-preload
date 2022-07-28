@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/vite-plugin-inject-preload)](https://github.com/Applelo/vite-plugin-inject-preload) [![node-current](https://img.shields.io/node/v/vite-plugin-inject-preload)](https://nodejs.org/)
+[![npm](https://img.shields.io/npm/v/vite-plugin-inject-preload)](https://www.npmjs.com/package/vite-plugin-inject-preload) [![node-current](https://img.shields.io/node/v/vite-plugin-inject-preload)](https://nodejs.org/)
 
 
 # vite-plugin-inject-preload
