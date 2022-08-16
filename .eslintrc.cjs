@@ -24,6 +24,7 @@ module.exports = defineConfig({
     'node/no-unpublished-import': 'off',
     'node/no-unpublished-require': 'off',
     'node/no-unsupported-features/es-syntax': 'off',
-    'import/order': 'error'
+    'import/order': 'error',
+    'import/no-unresolved': 'off'
   }
 })
