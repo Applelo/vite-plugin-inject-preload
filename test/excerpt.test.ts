@@ -24,7 +24,8 @@ const configs: Record<string, Options> = {
         attributes: {
           as: 'font',
           crossorigin: 'anonymous',
-          'data-font': 'Roboto'
+          'data-font': 'Roboto',
+          type: 'font/woff2'
         }
       }
     ]
@@ -38,12 +39,36 @@ const configs: Record<string, Options> = {
         match: /lazy.[a-z-0-9]*.(css|js)$/
       }
     ]
+  },
+  customPosition: {
+    files: [
+      {
+        match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.woff2$/,
+        attributes: {
+          'data-vite-plugin-inject-preload': true
+        }
+      },
+      {
+        match: /lazy.[a-z-0-9]*.(css|js)$/
+      }
+    ],
+    injectTo: 'custom'
+  },
+  wrongAttributes: {
+    files: [
+      {
+        match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.woff2$/,
+        attributes: {
+          href: './yolo.woff2'
+        }
+      }
+    ]
   }
 }
 
 const buildVite = async (config: Options) => {
   const { output } = (await build({
-    root: resolve(__dirname, './../demo'),
+    root: resolve(__dirname, './project'),
     plugins: [VitePluginInjectPreload(config)]
   })) as RollupOutput
 

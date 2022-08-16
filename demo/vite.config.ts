@@ -1,6 +1,16 @@
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
 import VitePluginInjectPreload from '../src'
 
-export default {
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        page: resolve(__dirname, 'page.html')
+      }
+    }
+  },
   plugins: [
     VitePluginInjectPreload({
       files: [
@@ -10,7 +20,8 @@ export default {
         {
           match: /lazy.[a-z-0-9]*.(css|js)$/
         }
-      ]
+      ],
+      injectTo: 'custom'
     })
   ]
-}
+})
