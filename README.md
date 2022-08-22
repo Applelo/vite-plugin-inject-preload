@@ -1,16 +1,14 @@
-[![npm](https://img.shields.io/npm/v/vite-plugin-inject-preload)](https://github.com/Applelo/vite-plugin-inject-preload) [![node-current](https://img.shields.io/node/v/vite-plugin-inject-preload)](https://nodejs.org/)
+[![npm](https://img.shields.io/npm/v/vite-plugin-inject-preload)](https://www.npmjs.com/package/vite-plugin-inject-preload) [![node-current](https://img.shields.io/node/v/vite-plugin-inject-preload)](https://nodejs.org/) [![Coverage Status](https://coveralls.io/repos/github/Applelo/vite-plugin-inject-preload/badge.svg?branch=main)](https://coveralls.io/github/Applelo/vite-plugin-inject-preload?branch=main)
 
 
 # vite-plugin-inject-preload
 A [Vite plugin](https://github.com/vitejs/vite) for injecting [&lt;link rel='preload'>](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)
 
-
 This plugin adds preload links on build by getting ViteJS output assets.
 
-Currently this plugin **only works on build** because of the way Vite behave. Maybe in a future update 🤷‍♂️.
+Currently, this plugin **only works on build** because of the way Vite behave. Maybe in a future update 🤷‍♂️.
 
 ## 📦 Install
-
 
 ```
 npm i -D vite-plugin-inject-preload
@@ -51,7 +49,7 @@ export default {
   * attributes (optional):
   If this option is ommited, it will determine the `mime` and the `as` attributes automatically.
   You can also add/override any attributes you want (but not the `rel="preload"` attribute).
-* injectTo (optional): By default, the preload links are injected with the `'head-prepend'` options. But you can pass `'head'` to inject preload links at bottom of the head tag if you need it.
+* injectTo (optional): By default, the preload links are injected with the `'head-prepend'` options. But you can pass `'head'` to inject preload links at bottom of the head tag if you need it. Since 1.1, you can pass the `'custom'` option and put `<!--__vite-plugin-inject-preload__-->` in your `.html` file where you want to inject the preload links.
 
 With the full options usage, you can do something like this :
 

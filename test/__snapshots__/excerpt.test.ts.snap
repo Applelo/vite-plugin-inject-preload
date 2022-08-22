@@ -6,18 +6,19 @@ exports[`excerpt > test auto 1`] = `
   <head>
     <link rel=\\"preload\\" href=\\"/assets/Roboto-Italic.7d6fc55f.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
     <link rel=\\"preload\\" href=\\"/assets/Roboto-Regular.a9876de8.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
-    <link rel=\\"preload\\" href=\\"/assets/lazy.3569e8c2.js\\" type=\\"application/javascript\\" as=\\"script\\">
-    <link rel=\\"preload\\" href=\\"/assets/lazy.99e8e9ea.css\\" type=\\"text/css\\" as=\\"style\\">
+    <link rel=\\"preload\\" href=\\"/assets/lazy.53d49301.js\\" type=\\"application/javascript\\" as=\\"script\\">
+    <link rel=\\"preload\\" href=\\"/assets/lazy.b3f56c2d.css\\" type=\\"text/css\\" as=\\"style\\">
 
     <meta charset=\\"UTF-8\\" />
-    <link rel=\\"icon\\" type=\\"image/svg+xml\\" href=\\"/vite.svg\\" />
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
     <title>Vite Plugin Inject Preload</title>
-    <script type=\\"module\\" crossorigin src=\\"/assets/index.f1a43016.js\\"></script>
-    <link rel=\\"stylesheet\\" href=\\"/assets/index.9083f2dc.css\\">
+    <!--__vite-plugin-inject-preload__-->
+    <script type=\\"module\\" crossorigin src=\\"/assets/index.d73e77ef.js\\"></script>
+    <link rel=\\"stylesheet\\" href=\\"/assets/index.a44c53f4.css\\">
   </head>
   <body>
     <h1>Vite Plugin Inject Preload</h1>
+    <a href=\\"page.html\\">Go to the page (test multi page generation)</a>
     
   </body>
 </html>
@@ -32,14 +33,40 @@ exports[`excerpt > test customAttributes 1`] = `
     <link rel=\\"preload\\" href=\\"/assets/Roboto-Regular.a9876de8.woff2\\" type=\\"font/woff2\\" as=\\"font\\" crossorigin=\\"anonymous\\" data-font=\\"Roboto\\">
 
     <meta charset=\\"UTF-8\\" />
-    <link rel=\\"icon\\" type=\\"image/svg+xml\\" href=\\"/vite.svg\\" />
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
     <title>Vite Plugin Inject Preload</title>
-    <script type=\\"module\\" crossorigin src=\\"/assets/index.f1a43016.js\\"></script>
-    <link rel=\\"stylesheet\\" href=\\"/assets/index.9083f2dc.css\\">
+    <!--__vite-plugin-inject-preload__-->
+    <script type=\\"module\\" crossorigin src=\\"/assets/index.d73e77ef.js\\"></script>
+    <link rel=\\"stylesheet\\" href=\\"/assets/index.a44c53f4.css\\">
   </head>
   <body>
     <h1>Vite Plugin Inject Preload</h1>
+    <a href=\\"page.html\\">Go to the page (test multi page generation)</a>
+    
+  </body>
+</html>
+"
+`;
+
+exports[`excerpt > test customPosition 1`] = `
+"<!DOCTYPE html>
+<html lang=\\"en\\">
+  <head>
+    <meta charset=\\"UTF-8\\" />
+    <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
+    <title>Vite Plugin Inject Preload</title>
+
+    <link rel=\\"preload\\" href=\\"/assets/Roboto-Italic.7d6fc55f.woff2\\" type=\\"font/woff2\\" as=\\"font\\" data-vite-plugin-inject-preload>
+    <link rel=\\"preload\\" href=\\"/assets/Roboto-Regular.a9876de8.woff2\\" type=\\"font/woff2\\" as=\\"font\\" data-vite-plugin-inject-preload>
+    <link rel=\\"preload\\" href=\\"/assets/lazy.53d49301.js\\" type=\\"application/javascript\\" as=\\"script\\">
+    <link rel=\\"preload\\" href=\\"/assets/lazy.b3f56c2d.css\\" type=\\"text/css\\" as=\\"style\\">
+
+    <script type=\\"module\\" crossorigin src=\\"/assets/index.d73e77ef.js\\"></script>
+    <link rel=\\"stylesheet\\" href=\\"/assets/index.a44c53f4.css\\">
+  </head>
+  <body>
+    <h1>Vite Plugin Inject Preload</h1>
+    <a href=\\"page.html\\">Go to the page (test multi page generation)</a>
     
   </body>
 </html>
@@ -51,18 +78,42 @@ exports[`excerpt > test injectBottom 1`] = `
 <html lang=\\"en\\">
   <head>
     <meta charset=\\"UTF-8\\" />
-    <link rel=\\"icon\\" type=\\"image/svg+xml\\" href=\\"/vite.svg\\" />
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
     <title>Vite Plugin Inject Preload</title>
-    <script type=\\"module\\" crossorigin src=\\"/assets/index.f1a43016.js\\"></script>
-    <link rel=\\"stylesheet\\" href=\\"/assets/index.9083f2dc.css\\">
+    <!--__vite-plugin-inject-preload__-->
+    <script type=\\"module\\" crossorigin src=\\"/assets/index.d73e77ef.js\\"></script>
+    <link rel=\\"stylesheet\\" href=\\"/assets/index.a44c53f4.css\\">
     <link rel=\\"preload\\" href=\\"/assets/Roboto-Italic.7d6fc55f.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
     <link rel=\\"preload\\" href=\\"/assets/Roboto-Regular.a9876de8.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
-    <link rel=\\"preload\\" href=\\"/assets/lazy.3569e8c2.js\\" type=\\"application/javascript\\" as=\\"script\\">
-    <link rel=\\"preload\\" href=\\"/assets/lazy.99e8e9ea.css\\" type=\\"text/css\\" as=\\"style\\">
+    <link rel=\\"preload\\" href=\\"/assets/lazy.53d49301.js\\" type=\\"application/javascript\\" as=\\"script\\">
+    <link rel=\\"preload\\" href=\\"/assets/lazy.b3f56c2d.css\\" type=\\"text/css\\" as=\\"style\\">
   </head>
   <body>
     <h1>Vite Plugin Inject Preload</h1>
+    <a href=\\"page.html\\">Go to the page (test multi page generation)</a>
+    
+  </body>
+</html>
+"
+`;
+
+exports[`excerpt > test wrongAttributes 1`] = `
+"<!DOCTYPE html>
+<html lang=\\"en\\">
+  <head>
+    <link rel=\\"preload\\" href=\\"./yolo.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
+    <link rel=\\"preload\\" href=\\"./yolo.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
+
+    <meta charset=\\"UTF-8\\" />
+    <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
+    <title>Vite Plugin Inject Preload</title>
+    <!--__vite-plugin-inject-preload__-->
+    <script type=\\"module\\" crossorigin src=\\"/assets/index.d73e77ef.js\\"></script>
+    <link rel=\\"stylesheet\\" href=\\"/assets/index.a44c53f4.css\\">
+  </head>
+  <body>
+    <h1>Vite Plugin Inject Preload</h1>
+    <a href=\\"page.html\\">Go to the page (test multi page generation)</a>
     
   </body>
 </html>

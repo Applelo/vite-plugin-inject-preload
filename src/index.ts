@@ -1,6 +1,8 @@
 import type { HtmlTagDescriptor, Plugin } from 'vite'
 import { OutputBundle } from 'rollup'
 import mime from 'mime-types'
+import { getAsWithMime } from './helper/getAsWithMime'
+import { serializeTags } from './helper/serializer'
 
 export interface OptionsFiles {
   /**
@@ -10,7 +12,7 @@ export interface OptionsFiles {
   /**
    * Attributes added to the preload links
    */
-  attributes?: Record<string, string>
+  attributes?: HtmlTagDescriptor['attrs']
 }
 
 export interface Options {
@@ -21,12 +23,16 @@ export interface Options {
   /**
    * The position where the preload links are injected
    */
-  injectTo?: 'head' | 'head-prepend'
+  injectTo?: 'head' | 'head-prepend' | 'custom'
 }
+
+// From https://github.com/vitejs/vite/blob/main/packages/vite/src/node/plugins/html.ts
+const customInject = /([ \t]*)<!--__vite-plugin-inject-preload__-->/i
 
 export default function VitePluginInjectPreload(options: Options): Plugin {
   return {
     name: 'vite-plugin-inject-preload',
+    apply: 'build',
     transformIndexHtml: {
       enforce: 'post',
       transform(html, ctx) {
@@ -45,14 +51,18 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
             if (!file.match.test(asset)) continue
 
             const attrs = file.attributes || ({} as Record<string, string>)
-            const injectTo = options.injectTo
-              ? options.injectTo
-              : 'head-prepend'
+            const injectTo =
+              options.injectTo && options.injectTo !== 'custom'
+                ? options.injectTo
+                : 'head-prepend'
             let href = attrs.href ? attrs.href : false
             if (href === false || typeof href === 'undefined') {
               href = `/${asset}`
             }
-            const type = attrs.type ? attrs.type : mime.lookup(asset)
+            const type =
+              attrs.type && typeof attrs.type === 'string'
+                ? attrs.type
+                : mime.lookup(asset) || undefined
             const as = attrs.as ? attrs.as : getAsWithMime(type || '')
 
             tags.push({
@@ -61,7 +71,7 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
                 {
                   rel: 'preload',
                   href,
-                  type: type || undefined,
+                  type,
                   as
                 },
                 attrs
@@ -71,41 +81,15 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
           }
         }
 
-        return tags
+        if (options.injectTo === 'custom') {
+          return html.replace(
+            customInject,
+            (match, p1) => `\n${serializeTags(tags, p1)}`
+          )
+        } else {
+          return tags
+        }
       }
     }
   }
-}
-
-export const getAsWithMime = (mime: string): RequestDestination | undefined => {
-  let destination = mime.split('/')[0]
-  const validDestinations = [
-    'audio',
-    'audioworklet',
-    'document',
-    'embed',
-    'font',
-    'frame',
-    'iframe',
-    'image',
-    'manifest',
-    'object',
-    'paintworklet',
-    'report',
-    'script',
-    'sharedworker',
-    'style',
-    'track',
-    'video',
-    'worker',
-    'xslt'
-  ]
-
-  if (['text/css'].includes(mime)) destination = 'style'
-  else if (['application/javascript'].includes(mime)) destination = 'script'
-  else if (['text/vtt'].includes(mime)) destination = 'track'
-
-  return validDestinations.includes(destination)
-    ? (destination as RequestDestination)
-    : undefined
 }

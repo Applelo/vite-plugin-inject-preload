@@ -18,3 +18,10 @@ body {
   color: #333;
   transition: all 1s ease;
 }
+
+a {
+  color: #333;
+}
+a:hover {
+  text-decoration: none;
+}
