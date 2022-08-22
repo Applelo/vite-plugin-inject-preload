@@ -84,7 +84,7 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
         if (options.injectTo === 'custom') {
           return html.replace(
             customInject,
-            (match, p1) => `${serializeTags(tags, p1)}`
+            (match, p1) => `\n${serializeTags(tags, p1)}`
           )
         } else {
           return tags

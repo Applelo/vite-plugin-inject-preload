@@ -55,6 +55,7 @@ exports[`excerpt > test customPosition 1`] = `
     <meta charset=\\"UTF-8\\" />
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
     <title>Vite Plugin Inject Preload</title>
+
     <link rel=\\"preload\\" href=\\"/assets/Roboto-Italic.7d6fc55f.woff2\\" type=\\"font/woff2\\" as=\\"font\\" data-vite-plugin-inject-preload>
     <link rel=\\"preload\\" href=\\"/assets/Roboto-Regular.a9876de8.woff2\\" type=\\"font/woff2\\" as=\\"font\\" data-vite-plugin-inject-preload>
     <link rel=\\"preload\\" href=\\"/assets/lazy.53d49301.js\\" type=\\"application/javascript\\" as=\\"script\\">
