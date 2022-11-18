@@ -13,7 +13,7 @@ exports[`excerpt > test auto 1`] = `
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
     <title>Vite Plugin Inject Preload</title>
     <!--__vite-plugin-inject-preload__-->
-    <script type=\\"module\\" crossorigin src=\\"/assets/index.d73e77ef.js\\"></script>
+    <script type=\\"module\\" crossorigin src=\\"/assets/index.b5d3721b.js\\"></script>
     <link rel=\\"stylesheet\\" href=\\"/assets/index.a44c53f4.css\\">
   </head>
   <body>
@@ -36,7 +36,7 @@ exports[`excerpt > test customAttributes 1`] = `
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
     <title>Vite Plugin Inject Preload</title>
     <!--__vite-plugin-inject-preload__-->
-    <script type=\\"module\\" crossorigin src=\\"/assets/index.d73e77ef.js\\"></script>
+    <script type=\\"module\\" crossorigin src=\\"/assets/index.b5d3721b.js\\"></script>
     <link rel=\\"stylesheet\\" href=\\"/assets/index.a44c53f4.css\\">
   </head>
   <body>
@@ -61,7 +61,7 @@ exports[`excerpt > test customPosition 1`] = `
     <link rel=\\"preload\\" href=\\"/assets/lazy.53d49301.js\\" type=\\"application/javascript\\" as=\\"script\\">
     <link rel=\\"preload\\" href=\\"/assets/lazy.b3f56c2d.css\\" type=\\"text/css\\" as=\\"style\\">
 
-    <script type=\\"module\\" crossorigin src=\\"/assets/index.d73e77ef.js\\"></script>
+    <script type=\\"module\\" crossorigin src=\\"/assets/index.b5d3721b.js\\"></script>
     <link rel=\\"stylesheet\\" href=\\"/assets/index.a44c53f4.css\\">
   </head>
   <body>
@@ -81,7 +81,7 @@ exports[`excerpt > test injectBottom 1`] = `
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
     <title>Vite Plugin Inject Preload</title>
     <!--__vite-plugin-inject-preload__-->
-    <script type=\\"module\\" crossorigin src=\\"/assets/index.d73e77ef.js\\"></script>
+    <script type=\\"module\\" crossorigin src=\\"/assets/index.b5d3721b.js\\"></script>
     <link rel=\\"stylesheet\\" href=\\"/assets/index.a44c53f4.css\\">
     <link rel=\\"preload\\" href=\\"/assets/Roboto-Italic.7d6fc55f.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
     <link rel=\\"preload\\" href=\\"/assets/Roboto-Regular.a9876de8.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
@@ -108,7 +108,7 @@ exports[`excerpt > test wrongAttributes 1`] = `
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
     <title>Vite Plugin Inject Preload</title>
     <!--__vite-plugin-inject-preload__-->
-    <script type=\\"module\\" crossorigin src=\\"/assets/index.d73e77ef.js\\"></script>
+    <script type=\\"module\\" crossorigin src=\\"/assets/index.b5d3721b.js\\"></script>
     <link rel=\\"stylesheet\\" href=\\"/assets/index.a44c53f4.css\\">
   </head>
   <body>
