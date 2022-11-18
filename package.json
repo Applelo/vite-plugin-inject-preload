@@ -35,6 +35,7 @@
   },
   "scripts": {
     "format": "prettier --write --cache .",
+    "format:check": "prettier --check .",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "build": "tsup src/index.ts --dts --format cjs,esm",
