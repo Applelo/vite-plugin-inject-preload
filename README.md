@@ -6,7 +6,9 @@ A [Vite plugin](https://github.com/vitejs/vite) for injecting [&lt;link rel='pre
 
 This plugin adds preload links on build by getting ViteJS output assets.
 
-Currently, this plugin **only works on build** because of the way Vite behave. Maybe in a future update 🤷‍♂️.
+Supporting Vite 3 and 4.
+
+ > Currently, this plugin **only works on build** because of the way Vite behave. Maybe in a future update 🤷‍♂️.
 
 ## 📦 Install
 
@@ -31,7 +33,7 @@ export default {
     VitePluginInjectPreload({
       files: [
         {
-          match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.woff2$/
+          match: /Roboto-[a-zA-Z]*-[a-z-0-9]*\.woff2$/
         },
         {
           match: /lazy.[a-z-0-9]*.(css|js)$/,
@@ -62,7 +64,7 @@ export default {
     VitePluginInjectPreload({
       files: [
         {
-          match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.woff2$/,
+          match: /Roboto-[a-zA-Z]*-[a-z-0-9]*\.woff2$/,
           attributes: {
             type: 'font/woff2',
             as: 'font',
