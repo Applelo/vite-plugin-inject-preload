@@ -9,7 +9,7 @@ const configs: Record<string, Options> = {
   injectBottom: {
     files: [
       {
-        match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.woff2$/
+        match: /Roboto-[a-zA-Z]*-[a-z-0-9]*\.woff2$/
       },
       {
         match: /lazy.[a-z-0-9]*.(css|js)$/
@@ -20,7 +20,7 @@ const configs: Record<string, Options> = {
   customAttributes: {
     files: [
       {
-        match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.woff2$/,
+        match: /Roboto-[a-zA-Z]*-[a-z-0-9]*\.woff2$/,
         attributes: {
           as: 'font',
           crossorigin: 'anonymous',
@@ -33,7 +33,7 @@ const configs: Record<string, Options> = {
   auto: {
     files: [
       {
-        match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.woff2$/
+        match: /Roboto-[a-zA-Z]*-[a-z-0-9]*\.woff2$/
       },
       {
         match: /lazy.[a-z-0-9]*.(css|js)$/
@@ -43,7 +43,7 @@ const configs: Record<string, Options> = {
   customPosition: {
     files: [
       {
-        match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.woff2$/,
+        match: /Roboto-[a-zA-Z]*-[a-z-0-9]*\.woff2$/,
         attributes: {
           'data-vite-plugin-inject-preload': true
         }
@@ -57,7 +57,7 @@ const configs: Record<string, Options> = {
   wrongAttributes: {
     files: [
       {
-        match: /Roboto-[a-zA-Z]*\.[a-z-0-9]*.woff2$/,
+        match: /Roboto-[a-zA-Z]*-[a-z-0-9]*\.woff2$/,
         attributes: {
           href: './yolo.woff2'
         }
