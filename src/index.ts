@@ -30,11 +30,15 @@ export interface Options {
 const customInject = /([ \t]*)<!--__vite-plugin-inject-preload__-->/i
 
 export default function VitePluginInjectPreload(options: Options): Plugin {
+  let basePath = "/";
   return {
     name: 'vite-plugin-inject-preload',
     apply: 'build',
     transformIndexHtml: {
       enforce: 'post',
+      configResolved(resolvedConfig) {
+        if(resolvedConfig.base) basePath = resolvedConfig.base
+      }
       transform(html, ctx) {
         const bundle = ctx.bundle
         if (!bundle) return html
@@ -57,7 +61,8 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
                 : 'head-prepend'
             let href = attrs.href ? attrs.href : false
             if (href === false || typeof href === 'undefined') {
-              href = `/${asset}`
+              // prepend basePath to asset path, if href is not passed
+              href = `${basePath.replace(/\/$/, "")}/${asset}`
             }
             const type =
               attrs.type && typeof attrs.type === 'string'
