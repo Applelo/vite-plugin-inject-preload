@@ -1,7 +1,7 @@
 import { resolve } from 'path'
-import { build } from 'vite'
-import { describe, expect, it } from 'vitest'
 import type { OutputAsset, RollupOutput } from 'rollup'
+import { build, type InlineConfig } from 'vite'
+import { describe, expect, it } from 'vitest'
 import VitePluginInjectPreload from './../src/index'
 import type { Options } from './../src/index'
 
@@ -66,10 +66,11 @@ const configs: Record<string, Options> = {
   }
 }
 
-const buildVite = async (config: Options) => {
+const buildVite = async (pluginConfig: Options, config: InlineConfig = {}) => {
   const { output } = (await build({
     root: resolve(__dirname, './project'),
-    plugins: [VitePluginInjectPreload(config)]
+    plugins: [VitePluginInjectPreload(pluginConfig)],
+    ...config
   })) as RollupOutput
 
   const { source: indexSource } = output.find(
@@ -85,6 +86,11 @@ describe('excerpt', () => {
       const config = configs[key] as Options
       it(`test ${key}`, async () => {
         const output = await buildVite(config)
+        expect(output).toMatchSnapshot()
+      })
+
+      it(`test ${key} with basePath`, async () => {
+        const output = await buildVite(config, { base: '/base' })
         expect(output).toMatchSnapshot()
       })
     }
