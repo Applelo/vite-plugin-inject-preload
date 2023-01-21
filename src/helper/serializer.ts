@@ -1,6 +1,6 @@
-import { HtmlTagDescriptor } from 'vite'
+import type { HtmlTagDescriptor } from 'vite'
 
-//From https://github.com/vitejs/vite/blob/main/packages/vite/src/node/plugins/html.ts
+// From https://github.com/vitejs/vite/blob/main/packages/vite/src/node/plugins/html.ts
 // Modified to keep only unary tags supports
 export const serializeTags = (
   tags: HtmlTagDescriptor[],
