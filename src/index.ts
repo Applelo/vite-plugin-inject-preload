@@ -1,6 +1,6 @@
 import type { HtmlTagDescriptor, Plugin } from 'vite'
-import { OutputBundle } from 'rollup'
-import mime from 'mime-types'
+import type { OutputBundle } from 'rollup'
+import { lookup as mimeLookup } from 'mime-types'
 import { getAsWithMime } from './helper/getAsWithMime'
 import { serializeTags } from './helper/serializer'
 
@@ -30,9 +30,14 @@ export interface Options {
 const customInject = /([ \t]*)<!--__vite-plugin-inject-preload__-->/i
 
 export default function VitePluginInjectPreload(options: Options): Plugin {
+  let basePath: string
   return {
     name: 'vite-plugin-inject-preload',
     apply: 'build',
+    configResolved(config) {
+      // Base path is sanitized by vite with the final trailing slash
+      basePath = config.base
+    },
     transformIndexHtml: {
       enforce: 'post',
       transform(html, ctx) {
@@ -57,12 +62,12 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
                 : 'head-prepend'
             let href = attrs.href ? attrs.href : false
             if (href === false || typeof href === 'undefined') {
-              href = `/${asset}`
+              href = `${basePath}${asset}`
             }
             const type =
               attrs.type && typeof attrs.type === 'string'
                 ? attrs.type
-                : mime.lookup(asset) || undefined
+                : mimeLookup(asset) || undefined
             const as = attrs.as ? attrs.as : getAsWithMime(type || '')
 
             tags.push({

@@ -6,14 +6,14 @@ exports[`excerpt > test auto 1`] = `
   <head>
     <link rel=\\"preload\\" href=\\"/assets/Roboto-Italic-7d6fc55f.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
     <link rel=\\"preload\\" href=\\"/assets/Roboto-Regular-a9876de8.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
-    <link rel=\\"preload\\" href=\\"/assets/lazy-5f60a8cd.js\\" type=\\"application/javascript\\" as=\\"script\\">
+    <link rel=\\"preload\\" href=\\"/assets/lazy-9f7f47b2.js\\" type=\\"application/javascript\\" as=\\"script\\">
     <link rel=\\"preload\\" href=\\"/assets/lazy-b3f56c2d.css\\" type=\\"text/css\\" as=\\"style\\">
 
     <meta charset=\\"UTF-8\\" />
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
     <title>Vite Plugin Inject Preload</title>
     <!--__vite-plugin-inject-preload__-->
-    <script type=\\"module\\" crossorigin src=\\"/assets/index-b097f04f.js\\"></script>
+    <script type=\\"module\\" crossorigin src=\\"/assets/index-32ef8379.js\\"></script>
     <link rel=\\"stylesheet\\" href=\\"/assets/index-6e93ae19.css\\">
   </head>
   <body>
@@ -36,7 +36,7 @@ exports[`excerpt > test customAttributes 1`] = `
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
     <title>Vite Plugin Inject Preload</title>
     <!--__vite-plugin-inject-preload__-->
-    <script type=\\"module\\" crossorigin src=\\"/assets/index-b097f04f.js\\"></script>
+    <script type=\\"module\\" crossorigin src=\\"/assets/index-32ef8379.js\\"></script>
     <link rel=\\"stylesheet\\" href=\\"/assets/index-6e93ae19.css\\">
   </head>
   <body>
@@ -58,10 +58,10 @@ exports[`excerpt > test customPosition 1`] = `
 
     <link rel=\\"preload\\" href=\\"/assets/Roboto-Italic-7d6fc55f.woff2\\" type=\\"font/woff2\\" as=\\"font\\" data-vite-plugin-inject-preload>
     <link rel=\\"preload\\" href=\\"/assets/Roboto-Regular-a9876de8.woff2\\" type=\\"font/woff2\\" as=\\"font\\" data-vite-plugin-inject-preload>
-    <link rel=\\"preload\\" href=\\"/assets/lazy-5f60a8cd.js\\" type=\\"application/javascript\\" as=\\"script\\">
+    <link rel=\\"preload\\" href=\\"/assets/lazy-9f7f47b2.js\\" type=\\"application/javascript\\" as=\\"script\\">
     <link rel=\\"preload\\" href=\\"/assets/lazy-b3f56c2d.css\\" type=\\"text/css\\" as=\\"style\\">
 
-    <script type=\\"module\\" crossorigin src=\\"/assets/index-b097f04f.js\\"></script>
+    <script type=\\"module\\" crossorigin src=\\"/assets/index-32ef8379.js\\"></script>
     <link rel=\\"stylesheet\\" href=\\"/assets/index-6e93ae19.css\\">
   </head>
   <body>
@@ -81,11 +81,11 @@ exports[`excerpt > test injectBottom 1`] = `
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
     <title>Vite Plugin Inject Preload</title>
     <!--__vite-plugin-inject-preload__-->
-    <script type=\\"module\\" crossorigin src=\\"/assets/index-b097f04f.js\\"></script>
+    <script type=\\"module\\" crossorigin src=\\"/assets/index-32ef8379.js\\"></script>
     <link rel=\\"stylesheet\\" href=\\"/assets/index-6e93ae19.css\\">
     <link rel=\\"preload\\" href=\\"/assets/Roboto-Italic-7d6fc55f.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
     <link rel=\\"preload\\" href=\\"/assets/Roboto-Regular-a9876de8.woff2\\" type=\\"font/woff2\\" as=\\"font\\">
-    <link rel=\\"preload\\" href=\\"/assets/lazy-5f60a8cd.js\\" type=\\"application/javascript\\" as=\\"script\\">
+    <link rel=\\"preload\\" href=\\"/assets/lazy-9f7f47b2.js\\" type=\\"application/javascript\\" as=\\"script\\">
     <link rel=\\"preload\\" href=\\"/assets/lazy-b3f56c2d.css\\" type=\\"text/css\\" as=\\"style\\">
   </head>
   <body>
@@ -108,7 +108,7 @@ exports[`excerpt > test wrongAttributes 1`] = `
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
     <title>Vite Plugin Inject Preload</title>
     <!--__vite-plugin-inject-preload__-->
-    <script type=\\"module\\" crossorigin src=\\"/assets/index-b097f04f.js\\"></script>
+    <script type=\\"module\\" crossorigin src=\\"/assets/index-32ef8379.js\\"></script>
     <link rel=\\"stylesheet\\" href=\\"/assets/index-6e93ae19.css\\">
   </head>
   <body>
