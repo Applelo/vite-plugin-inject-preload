@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-inject-preload",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "A Vite plugin for injecting <link rel='preload'>",
   "author": "Applelo",
   "license": "GPL-3.0",
@@ -52,21 +52,21 @@
   },
   "devDependencies": {
     "@types/mime-types": "^2.1.1",
-    "@typescript-eslint/eslint-plugin": "^5.46.0",
-    "@typescript-eslint/parser": "^5.46.0",
-    "@vitest/coverage-c8": "^0.25.7",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
+    "@vitest/coverage-c8": "^0.27.2",
     "c8": "^7.12.0",
-    "eslint": "^8.29.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-define-config": "^1.12.0",
-    "eslint-plugin-import": "^2.26.0",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-define-config": "^1.14.0",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-node": "^11.1.0",
-    "prettier": "^2.8.1",
-    "rollup": "^3.7.2",
+    "prettier": "^2.8.3",
+    "rollup": "^3.10.1",
     "tsup": "^6.5.0",
     "typescript": "^4.9.4",
-    "vite": "^4.0.0",
-    "vitest": "^0.25.7"
+    "vite": "^4.0.4",
+    "vitest": "^0.27.2"
   },
   "packageManager": "pnpm@7.3.0"
 }
