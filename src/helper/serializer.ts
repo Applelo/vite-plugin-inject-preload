@@ -16,6 +16,8 @@ const serializeAttrs = (attrs: HtmlTagDescriptor['attrs']): string => {
   for (const key in attrs) {
     if (typeof attrs[key] === 'boolean') {
       res += attrs[key] ? ` ${key}` : ``
+    } else if (attrs[key] === undefined) {
+      continue
     } else {
       res += ` ${key}=${JSON.stringify(attrs[key])}`
     }
