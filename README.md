@@ -2,6 +2,7 @@
 
 
 # vite-plugin-inject-preload
+
 A [Vite plugin](https://github.com/vitejs/vite) for injecting [&lt;link rel='preload'>](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)
 
 This plugin adds preload links on build by getting ViteJS output assets.
@@ -71,6 +72,11 @@ export default {
             crossorigin: 'anonymous',
             'data-font': 'Roboto'
           }
+        },
+        {
+          rel: 'modulepreload',
+          type: undefined,
+          match: /lazy.[a-z-0-9]*.(js)$/,
         }
       ],
       injectTo: 'head-prepend'

@@ -31,6 +31,11 @@ const customInject = /([ \t]*)<!--__vite-plugin-inject-preload__-->/i
 
 export default function VitePluginInjectPreload(options: Options): Plugin {
   let basePath: string
+  const injectTo =
+    options.injectTo && options.injectTo !== 'custom'
+      ? options.injectTo
+      : 'head-prepend'
+
   return {
     name: 'vite-plugin-inject-preload',
     apply: 'build',
@@ -45,7 +50,6 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
         if (!bundle) return html
 
         const tags: HtmlTagDescriptor[] = []
-
         const assets: OutputBundle = Object.keys(bundle)
           .sort()
           .reduce((res, key) => ((res[key] = bundle[key]), res), {})
@@ -55,32 +59,31 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
             const file = options.files[index]
             if (!file.match.test(asset)) continue
 
-            const attrs = file.attributes || ({} as Record<string, string>)
-            const injectTo =
-              options.injectTo && options.injectTo !== 'custom'
-                ? options.injectTo
-                : 'head-prepend'
-            let href = attrs.href ? attrs.href : false
-            if (href === false || typeof href === 'undefined') {
-              href = `${basePath}${asset}`
-            }
-            const type =
-              attrs.type && typeof attrs.type === 'string'
-                ? attrs.type
-                : mimeLookup(asset) || undefined
-            const as = attrs.as ? attrs.as : getAsWithMime(type || '')
+            const attrs: HtmlTagDescriptor['attrs'] = file.attributes || {}
+            const href = `${basePath}${asset}`
+            const type = attrs.type ? attrs.type : mimeLookup(asset)
+            const as =
+              typeof type === 'string' ? getAsWithMime(type) : undefined
+
+            const finalAttrs = Object.assign(
+              {
+                rel: 'preload',
+                href,
+                type,
+                as
+              },
+              attrs
+            )
+
+            // Remove any undefined values
+            Object.keys(finalAttrs).forEach(
+              key =>
+                typeof finalAttrs[key] === 'undefined' && delete finalAttrs[key]
+            )
 
             tags.push({
               tag: 'link',
-              attrs: Object.assign(
-                {
-                  rel: 'preload',
-                  href,
-                  type,
-                  as
-                },
-                attrs
-              ),
+              attrs: finalAttrs,
               injectTo
             })
           }
