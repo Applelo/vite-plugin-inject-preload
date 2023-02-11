@@ -63,6 +63,26 @@ const configs: Record<string, Options> = {
         }
       }
     ]
+  },
+  noType: {
+    files: [
+      {
+        match: /Roboto-[a-zA-Z]*-[a-z-0-9]*\.woff2$/,
+        attributes: {
+          type: undefined
+        }
+      }
+    ]
+  },
+  modulepreload: {
+    files: [
+      {
+        match: /lazy.[a-z-0-9]*.(js)$/,
+        attributes: {
+          rel: 'modulepreload'
+        }
+      }
+    ]
   }
 }
 
