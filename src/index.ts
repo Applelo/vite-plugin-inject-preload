@@ -46,6 +46,8 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
       enforce: 'post',
       transform(html, ctx) {
         const bundle: IndexHtmlTransformContext['bundle'] = ctx.bundle
+        // ignore next because the bundle will be always here on build
+        /* c8 ignore next */
         if (!bundle) return html
 
         const tags: HtmlTagDescriptor[] = []

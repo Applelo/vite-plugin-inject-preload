@@ -9,7 +9,7 @@ This plugin adds preload links on build by getting ViteJS output assets.
 
 Supporting Vite 3 and 4.
 
- > Currently, this plugin **only works on build** because of the way Vite behave. Maybe in a future update 🤷‍♂️.
+ > Currently, this plugin **only works on build** because of [the way Vite behave](https://github.com/Applelo/vite-plugin-inject-preload/issues/15).
 
 ## 📦 Install
 
