@@ -1,6 +1,7 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import VitePluginInjectPreload from '../src'
+import Inspect from 'vite-plugin-inspect'
 
 export default defineConfig({
   build: {
@@ -12,6 +13,7 @@ export default defineConfig({
     }
   },
   plugins: [
+    Inspect(),
     VitePluginInjectPreload({
       files: [
         {
