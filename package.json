@@ -52,20 +52,20 @@
   },
   "devDependencies": {
     "@types/mime-types": "^2.1.1",
-    "@typescript-eslint/eslint-plugin": "^5.53.0",
-    "@typescript-eslint/parser": "^5.53.0",
-    "@vitest/coverage-c8": "^0.29.1",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "@vitest/coverage-c8": "^0.29.2",
     "c8": "^7.13.0",
     "eslint": "^8.35.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-define-config": "^1.15.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-define-config": "^1.16.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-node": "^11.1.0",
     "prettier": "^2.8.4",
     "tsup": "^6.6.3",
     "typescript": "^4.9.5",
     "vite": "^4.1.4",
-    "vitest": "^0.29.1"
+    "vitest": "^0.29.2"
   },
   "packageManager": "pnpm@7.3.0"
 }
