@@ -1,5 +1,4 @@
-import type { HtmlTagDescriptor, Plugin } from 'vite'
-import type { OutputBundle } from 'rollup'
+import type { HtmlTagDescriptor, Plugin, IndexHtmlTransformContext } from 'vite'
 import { lookup as mimeLookup } from 'mime-types'
 import { getAsWithMime } from './helper/getAsWithMime'
 import { serializeTags } from './helper/serializer'
@@ -46,11 +45,13 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
     transformIndexHtml: {
       enforce: 'post',
       transform(html, ctx) {
-        const bundle = ctx.bundle
+        const bundle: IndexHtmlTransformContext['bundle'] = ctx.bundle
+        // ignore next because the bundle will be always here on build
+        /* c8 ignore next */
         if (!bundle) return html
 
         const tags: HtmlTagDescriptor[] = []
-        const assets: OutputBundle = Object.keys(bundle)
+        const assets = Object.keys(bundle)
           .sort()
           .reduce((res, key) => ((res[key] = bundle[key]), res), {})
 
