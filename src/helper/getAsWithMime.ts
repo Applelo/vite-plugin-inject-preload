@@ -1,4 +1,4 @@
-export const getAsWithMime = (mime: string): RequestDestination | undefined => {
+export function getAsWithMime(mime: string): RequestDestination | undefined {
   let destination = mime.split('/')[0] as RequestDestination
   const validDestinations: RequestDestination[] = [
     'audio',
@@ -19,18 +19,22 @@ export const getAsWithMime = (mime: string): RequestDestination | undefined => {
     'track',
     'video',
     'worker',
-    'xslt'
+    'xslt',
   ]
 
-  if (['text/css'].includes(mime)) destination = 'style'
-  else if (['application/javascript'].includes(mime)) destination = 'script'
-  else if (['text/vtt'].includes(mime)) destination = 'track'
+  if (['text/css'].includes(mime))
+    destination = 'style'
+  else if (['application/javascript'].includes(mime))
+    destination = 'script'
+  else if (['text/vtt'].includes(mime))
+    destination = 'track'
 
-  if (validDestinations.includes(destination)) return destination
+  if (validDestinations.includes(destination))
+    return destination
 
   console.warn(
     '[vite-plugin-inject-preload]',
-    `No valid destinations for "${mime}". Define the 'as' attribute.`
+    `No valid destinations for "${mime}". Define the 'as' attribute.`,
   )
   return undefined
 }

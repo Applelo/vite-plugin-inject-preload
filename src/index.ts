@@ -1,5 +1,6 @@
-import type { HtmlTagDescriptor, Plugin, IndexHtmlTransformContext } from 'vite'
+import type { HtmlTagDescriptor, IndexHtmlTransformContext, Plugin } from 'vite'
 import { lookup as mimeLookup } from 'mime-types'
+import type { OutputAsset, OutputChunk } from 'rollup'
 import { getAsWithMime } from './helper/getAsWithMime'
 import { serializeTags } from './helper/serializer'
 
@@ -30,8 +31,8 @@ const customInject = /([ \t]*)<!--__vite-plugin-inject-preload__-->/i
 
 export default function VitePluginInjectPreload(options: Options): Plugin {
   let basePath: string
-  const injectTo =
-    options.injectTo && options.injectTo !== 'custom'
+  const injectTo
+    = options.injectTo && options.injectTo !== 'custom'
       ? options.injectTo
       : 'head-prepend'
 
@@ -48,44 +49,49 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
         const bundle: IndexHtmlTransformContext['bundle'] = ctx.bundle
         // ignore next because the bundle will be always here on build
         /* c8 ignore next */
-        if (!bundle) return html
+        if (!bundle)
+          return html
 
         const tags: HtmlTagDescriptor[] = []
         const assets = Object.keys(bundle)
           .sort()
-          .reduce((res, key) => ((res[key] = bundle[key]), res), {})
+          .reduce((res: Record<string, OutputAsset | OutputChunk>, key) => {
+            res[key] = bundle[key]
+            return res
+          }, {})
 
         for (const asset in assets) {
           for (let index = 0; index < options.files.length; index++) {
             const file = options.files[index]
-            if (!file.match.test(asset)) continue
+            if (!file.match.test(asset))
+              continue
 
             const attrs: HtmlTagDescriptor['attrs'] = file.attributes || {}
             const href = `${basePath}${asset}`
             const type = attrs.type ? attrs.type : mimeLookup(asset)
-            const as =
-              typeof type === 'string' ? getAsWithMime(type) : undefined
+            const as
+              = typeof type === 'string' ? getAsWithMime(type) : undefined
 
             const finalAttrs = Object.assign(
               {
                 rel: 'preload',
                 href,
                 type,
-                as
+                as,
               },
-              attrs
+              attrs,
             )
 
             // Remove any undefined values
             Object.keys(finalAttrs).forEach(
               key =>
-                typeof finalAttrs[key] === 'undefined' && delete finalAttrs[key]
+                typeof finalAttrs[key] === 'undefined' && delete finalAttrs[key],
             )
 
             tags.push({
               tag: 'link',
               attrs: finalAttrs,
-              injectTo
+              injectTo,
             })
           }
         }
@@ -93,12 +99,13 @@ export default function VitePluginInjectPreload(options: Options): Plugin {
         if (options.injectTo === 'custom') {
           return html.replace(
             customInject,
-            (match, p1) => `\n${serializeTags(tags, p1)}`
+            (match, p1) => `\n${serializeTags(tags, p1)}`,
           )
-        } else {
+        }
+        else {
           return tags
         }
-      }
-    }
+      },
+    },
   }
 }
