@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/node": "^14.18.55",
     "typescript": "^5.1.6",
     "vite": "^4.4.9",
     "vite-plugin-inspect": "^0.7.38"
