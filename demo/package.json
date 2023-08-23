@@ -3,15 +3,16 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@8.6.0",
+  "packageManager": "pnpm@8.6.12",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/node": "^14.18.55",
     "typescript": "^5.1.6",
-    "vite": "^4.4.8",
-    "vite-plugin-inspect": "^0.7.35"
+    "vite": "^4.4.9",
+    "vite-plugin-inspect": "^0.7.38"
   }
 }

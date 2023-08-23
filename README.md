@@ -96,9 +96,11 @@ export default {
           }
         },
         {
-          rel: 'modulepreload',
-          type: undefined,
           match: /lazy.[a-z-0-9]*.(js)$/,
+          attributes: {
+            rel: 'modulepreload',
+            type: undefined,
+          }
         }
       ],
       injectTo: 'head-prepend'
