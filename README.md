@@ -1,3 +1,5 @@
+> This package is now [will not receive anymore update](https://github.com/Applelo/vite-plugin-inject-preload/issues/21). You can switch to [unplugin-inject-preload](https://github.com/Applelo/unplugin-inject-preload).
+
 [![npm](https://img.shields.io/npm/v/vite-plugin-inject-preload)](https://www.npmjs.com/package/vite-plugin-inject-preload) [![node-current](https://img.shields.io/node/v/vite-plugin-inject-preload)](https://nodejs.org/) [![Coverage Status](https://coveralls.io/repos/github/Applelo/vite-plugin-inject-preload/badge.svg?branch=main)](https://coveralls.io/github/Applelo/vite-plugin-inject-preload?branch=main)
 
 
